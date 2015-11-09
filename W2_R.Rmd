@@ -1,0 +1,35 @@
+---
+title: "W2_R"
+author: "Mauricio Sanchez"
+date: "November 8, 2015"
+output: html_document
+---
+
+```{r, echo=FALSE}
+my_nchooser <- function(n, r) {
+    # get n!, r! by using the prod function
+    nfactorial <- prod(1:n)
+    rfactorial <- prod(1:r)
+    
+    #get (n - r)!
+    if (n == r) {
+      # if 0! then 1 is passed as default
+      nrfactorial <- 1
+    } else {
+      nrfactorial <- prod(1:(n - r))
+    }
+    
+    x <- choose_result <- nfactorial / (nrfactorial * rfactorial)
+  
+  return(x)
+}
+```
+
+n choose r test results:
+
+```{r, echo=TRUE}
+my_nchooser(5,3)
+my_nchooser(5,5)
+my_nchooser(6,2)
+```
+
